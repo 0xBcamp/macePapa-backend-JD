@@ -73,17 +73,14 @@ ponder.on("R8R:PlayerJoinedGame", async ({ event, context }) => {
   })
 });
 
-// ponder.on("R8R:PlayerJoinedGame", async ({ event, context }) => {
-//   const { Player } = context.db;
-//   const { block, args } = event;
+ponder.on("R8R:GameEnded", async ({ event, context }) => {
+  const { Game } = context.db;
+  const { block, args } = event;
 
-//   await Player.create({
-//     id: BigInt(args.player),
-//     data: {
-//       address: args.player,
-//       playerRating: args.playerRating,
-//       token: args.token,
-//       gameId: args.gameId
-//     },
-//   });
-// });
+  await Game.update({
+    id: args.gameId.toString(),
+    data: {
+      status: false,
+    },
+  });
+});
