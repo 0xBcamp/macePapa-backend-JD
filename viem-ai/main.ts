@@ -24,20 +24,21 @@ async function createGame() {
     account,
   })
   gameIdCount++;
-  console.log("=== GAME CREATED ===")
+  console.log("========= GAME CREATED ==========")
   console.log("=== GameId: ", gameIdCount, " ===");
-  console.log("TXN HASH: ", createGame);
+  console.log("=== TXN HASH: ", createGame, " ==");
+  console.log("=================================");
 };
 
 createGame();
 
+// this is a placeholder for fetching the AI rating
 const aiRating = Math.floor(Math.random() * 100) + 1;
 
 async function endGame() {
   await setTimeout(600000); // wait 10 minutes
-  console.log("=== ENDING GAME ===");
+  console.log("========== ENDING GAME ==========");
   console.log("=== GameId: ", gameIdCount, " ===");
-  console.log("=================================");
   var endGame = await client.writeContract({
     address: '0xcF3f4bbFEf57f6fc2b347C9b62798d84ef93c1D2',
     abi: wagmiAbi,
@@ -45,22 +46,8 @@ async function endGame() {
     account,
     args: [gameIdCount, aiRating] // ends the game just created above
   })
-  console.log("TXN HASH: ", endGame);
+  console.log("=== TXN HASH: ", endGame, " =====");
+  console.log("=================================");
 };
-
-// async function endGame() {
-//   await setTimeout(20000); // wait 20 seconds
-//   console.log("=== ENDING GAME ===");
-//   console.log("=== GameId: ", gameIdCount, " ===");
-//   console.log("=================================");
-//   var endGame = await client.writeContract({
-//     address: '0x298C3B02db7661338f75AF0076134f4D1BFD8928',
-//     abi: wagmiAbi,
-//     functionName: 'endGame',
-//     account,
-//     args: [gameIdCount, aiRating] // ends the game just created above
-//   })
-//   console.log("TXN HASH: ", endGame);
-// };
 
 endGame();
