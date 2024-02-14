@@ -25,6 +25,7 @@ ponder.on("R8R:GameCreated", async ({ event, context }) => {
       createTimestamp: block.timestamp,
       expireTimestamp: args.endTimestamp,
       nonce: newGameCount.toString(),
+      winners: [],
     },
   });
 });
@@ -77,10 +78,17 @@ ponder.on("R8R:GameEnded", async ({ event, context }) => {
   const { Game } = context.db;
   const { block, args } = event;
 
+  let winnersArray: Array<string> = [];
+  for(var i = 0; i < args.winners.length; i++) {
+    let winner = args.winners[i];
+    winnersArray.push(winner!);
+  }
+
   await Game.update({
     id: args.gameId.toString(),
     data: {
       status: false,
+      winners: winnersArray
     },
   });
 });
