@@ -17,4 +17,4 @@ yarn-error.log*
 /generated/
 /.ponder/
 
-/viem-ai/node_modules
+node_modules
