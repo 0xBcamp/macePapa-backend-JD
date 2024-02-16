@@ -39,22 +39,7 @@ ponder.on("R8R:PlayerJoinedGame", async ({ event, context }) => {
   // ...I think the 'link' between Games-Players/Players-Games is done by the 'join table', see next 'await' below
   await Player.upsert({
     id: args.player.toString(),
-    // create: {
-      
-    // },
-    // update: {
-
-    // }
   });
-
-  // Update or Create/Insert GamePlayer 'join table'
-  // as per https://ponder.sh/docs/guides/design-your-schema#many-to-many
-  //
-  // *** GOOD NEWS: This is working... when a player joins a game their address, token, and playerRating are being indexed and added to the DB
-  //
-  // *** BAD NEWS: When a player then joins A DIFFERENT game it adds them into the game they've joined and REMOVES their DB entry from their current game
-  // *** ...so it's as if a player can only join one game at any time, whereas it should add them into BOTH game 1 and game 2
-  // *** ...solution? I'm guessing this is something to do with the many-to-many relationship? Have I inadvertently set it as one-to-many??
 
   await GamePlayer.upsert({
     id: args.player.toString(),

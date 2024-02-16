@@ -16,7 +16,6 @@ const client = createWalletClient({
 let gameIdCount = 0;
 
 async function createGame() {
-  console.log("=== CREATING GAME ===");
   var createGame = await client.writeContract({
     address: '0xcF3f4bbFEf57f6fc2b347C9b62798d84ef93c1D2',
     abi: wagmiAbi,
