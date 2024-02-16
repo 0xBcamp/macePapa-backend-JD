@@ -13,7 +13,7 @@ export default createConfig({
   contracts: {
     R8R: {
       abi: R8RAbi,
-      address: "0x298C3B02db7661338f75AF0076134f4D1BFD8928",
+      address: "0xb99599CBC593Bc283a4E9FC507A04cFDC9462094",
       network: "fantomTestnet",
     },
   },

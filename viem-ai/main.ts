@@ -17,7 +17,7 @@ let gameIdCount = 0;
 
 async function createGame() {
   var createGame = await client.writeContract({
-    address: '0xcF3f4bbFEf57f6fc2b347C9b62798d84ef93c1D2',
+    address: '0xb99599CBC593Bc283a4E9FC507A04cFDC9462094',
     abi: wagmiAbi,
     functionName: 'createGame',
     account,
@@ -39,7 +39,7 @@ async function endGame() {
   console.log("========== ENDING GAME ==========");
   console.log("=== GameId: ", gameIdCount, " ===");
   var endGame = await client.writeContract({
-    address: '0xcF3f4bbFEf57f6fc2b347C9b62798d84ef93c1D2',
+    address: '0xb99599CBC593Bc283a4E9FC507A04cFDC9462094',
     abi: wagmiAbi,
     functionName: 'endGame',
     account,
