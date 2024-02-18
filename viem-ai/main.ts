@@ -5,7 +5,7 @@ import { wagmiAbi } from './abi';
 import { setTimeout } from "timers/promises";
 
 // for testing only - PK should be imported from .env
-const account = privateKeyToAccount('0x1234')
+const account = privateKeyToAccount('0x2de6828af73897b5eef20475239c3b2ce96a1b7998430d1c0543eab240a72860')
 
 const client = createWalletClient({
   account,

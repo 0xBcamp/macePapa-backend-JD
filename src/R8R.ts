@@ -26,6 +26,7 @@ ponder.on("R8R:GameCreated", async ({ event, context }) => {
       expireTimestamp: args.endTimestamp,
       nonce: newGameCount.toString(),
       winners: [],
+      aiRating: BigInt(0),
     },
   });
 });
@@ -73,7 +74,8 @@ ponder.on("R8R:GameEnded", async ({ event, context }) => {
     id: args.gameId.toString(),
     data: {
       status: false,
-      winners: winnersArray
+      winners: winnersArray,
+      aiRating: BigInt(args.aiRating)
     },
   });
 });

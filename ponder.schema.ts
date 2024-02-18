@@ -12,6 +12,7 @@ export default createSchema((p) => ({
     nonce: p.string().references("Player.id"),
     gamePlayer: p.many("GamePlayer.gameId"),
     winners: p.string().list(), // winners is an array of addresses, store in list of strings?
+    aiRating: p.bigint(),
   }),
   Player: p.createTable({
     id: p.string(),
