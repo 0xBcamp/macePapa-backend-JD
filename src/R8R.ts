@@ -65,10 +65,12 @@ ponder.on("R8R:GameEnded", async ({ event, context }) => {
   const { block, args } = event;
 
   let winnersArray: Array<string> = [];
-  for(var i = 0; i < args.winners.length; i++) {
-    let winner = args.winners[i];
-    winnersArray.push(winner!);
-  }
+  // for(var i = 0; i < args.winners.length; i++) {
+  //   let winner = args.winners[i];
+  //   winnersArray.push(winner!);
+  // }
+
+  winnersArray.push(args.winners.toString());
 
   await Game.update({
     id: args.gameId.toString(),
